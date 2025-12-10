@@ -1,5 +1,6 @@
 import { ScrollReveal } from '../hooks/useScrollReveal';
 import { useDeviceDetect, getDownloadInfo } from '../hooks/useDeviceDetect';
+import { useSound } from '../hooks/useSound';
 import { AppStoreBadges } from './SmartDownload';
 import './Hero.css';
 import './SmartDownload.css';
@@ -7,6 +8,7 @@ import './SmartDownload.css';
 export function Hero({ onWatchDemo }) {
   const { os, isMobile } = useDeviceDetect();
   const downloadInfo = getDownloadInfo(os);
+  const { playClickSound } = useSound();
   const apps = [
     { name: 'Slack', color: '#4A154B', icon: 'S' },
     { name: 'Gmail', color: '#EA4335', icon: 'G' },
@@ -28,7 +30,7 @@ export function Hero({ onWatchDemo }) {
       </div>
 
       <div className="container hero-container">
-        <ScrollReveal className="hero-content">
+        <ScrollReveal className="hero-content" delay={100}>
           <div className="hero-badge">
             <span className="badge-dot"></span>
             <span>AI-Powered Unified Inbox</span>
@@ -46,7 +48,7 @@ export function Hero({ onWatchDemo }) {
           </p>
 
           <div className="hero-actions">
-            <a href={downloadInfo.url} className="btn btn-primary btn-lg">
+            <a href={downloadInfo.url} className="btn btn-primary btn-lg" onClick={playClickSound}>
               {downloadInfo.icon === 'apple' && (
                 <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
                   <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
@@ -76,7 +78,7 @@ export function Hero({ onWatchDemo }) {
               )}
               {downloadInfo.label}
             </a>
-            <button onClick={onWatchDemo} className="btn btn-secondary btn-lg">
+            <button onClick={() => { playClickSound(); onWatchDemo(); }} className="btn btn-secondary btn-lg">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <polygon points="5 3 19 12 5 21 5 3"/>
               </svg>
@@ -111,7 +113,7 @@ export function Hero({ onWatchDemo }) {
           </div>
         </ScrollReveal>
 
-        <ScrollReveal className="hero-visual" delay={200}>
+        <ScrollReveal className="hero-visual" delay={400}>
           <div className="hero-phone-container">
             {/* Floating app icons */}
             <div className="floating-apps">
@@ -267,7 +269,7 @@ export function Hero({ onWatchDemo }) {
           </div>
         </ScrollReveal>
 
-        <ScrollReveal className="hero-trusted" delay={400}>
+        <ScrollReveal className="hero-trusted" delay={700}>
           <p className="trusted-label">Works with all your favorite apps</p>
           <div className="trusted-logos">
             {apps.map((app) => (

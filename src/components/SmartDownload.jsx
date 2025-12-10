@@ -1,4 +1,5 @@
 import { useDeviceDetect, getDownloadInfo } from '../hooks/useDeviceDetect';
+import { useSound } from '../hooks/useSound';
 import './SmartDownload.css';
 
 // Platform icons as components
@@ -47,6 +48,7 @@ const getIcon = (iconType) => {
 export function SmartDownloadButton({ className = '', showAllPlatforms = false }) {
   const { os, isMobile } = useDeviceDetect();
   const downloadInfo = getDownloadInfo(os);
+  const { playClickSound } = useSound();
 
   if (showAllPlatforms) {
     return (
@@ -61,7 +63,7 @@ export function SmartDownloadButton({ className = '', showAllPlatforms = false }
   }
 
   return (
-    <a href={downloadInfo.url} className={`btn btn-primary btn-lg smart-download-btn ${className}`}>
+    <a href={downloadInfo.url} className={`btn btn-primary btn-lg smart-download-btn ${className}`} onClick={playClickSound}>
       {getIcon(downloadInfo.icon)}
       {downloadInfo.label}
     </a>
@@ -70,12 +72,14 @@ export function SmartDownloadButton({ className = '', showAllPlatforms = false }
 
 export function PlatformBadge({ platform, active = false }) {
   const info = getDownloadInfo(platform);
+  const { playClickSound } = useSound();
 
   return (
     <a
       href={info.url}
       className={`platform-badge ${active ? 'active' : ''}`}
       aria-label={info.label}
+      onClick={playClickSound}
     >
       {getIcon(info.icon)}
       <span>{info.shortLabel}</span>
@@ -85,12 +89,13 @@ export function PlatformBadge({ platform, active = false }) {
 
 export function AppStoreBadges({ className = '' }) {
   const { os, isMobile } = useDeviceDetect();
+  const { playClickSound } = useSound();
 
   // Show mobile badges for mobile devices, desktop badges for desktop
   if (isMobile) {
     return (
       <div className={`app-store-badges ${className}`}>
-        <a href="#" className={`store-badge ${os === 'ios' ? 'highlighted' : ''}`} aria-label="Download on the App Store">
+        <a href="#" className={`store-badge ${os === 'ios' ? 'highlighted' : ''}`} aria-label="Download on the App Store" onClick={playClickSound}>
           <div className="store-badge-content">
             <AppleIcon />
             <div className="store-badge-text">
@@ -99,7 +104,7 @@ export function AppStoreBadges({ className = '' }) {
             </div>
           </div>
         </a>
-        <a href="#" className={`store-badge ${os === 'android' ? 'highlighted' : ''}`} aria-label="Get it on Google Play">
+        <a href="#" className={`store-badge ${os === 'android' ? 'highlighted' : ''}`} aria-label="Get it on Google Play" onClick={playClickSound}>
           <div className="store-badge-content">
             <svg viewBox="0 0 24 24" width="20" height="20">
               <path fill="#4285F4" d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92z"/>
@@ -120,7 +125,7 @@ export function AppStoreBadges({ className = '' }) {
   // Desktop badges
   return (
     <div className={`app-store-badges desktop-badges ${className}`}>
-      <a href="#" className={`store-badge ${os === 'macos' ? 'highlighted' : ''}`} aria-label="Download for Mac">
+      <a href="#" className={`store-badge ${os === 'macos' ? 'highlighted' : ''}`} aria-label="Download for Mac" onClick={playClickSound}>
         <div className="store-badge-content">
           <AppleIcon />
           <div className="store-badge-text">
@@ -129,7 +134,7 @@ export function AppStoreBadges({ className = '' }) {
           </div>
         </div>
       </a>
-      <a href="#" className={`store-badge ${os === 'windows' ? 'highlighted' : ''}`} aria-label="Download for Windows">
+      <a href="#" className={`store-badge ${os === 'windows' ? 'highlighted' : ''}`} aria-label="Download for Windows" onClick={playClickSound}>
         <div className="store-badge-content">
           <WindowsIcon />
           <div className="store-badge-text">
@@ -138,7 +143,7 @@ export function AppStoreBadges({ className = '' }) {
           </div>
         </div>
       </a>
-      <a href="#" className={`store-badge ${os === 'linux' ? 'highlighted' : ''}`} aria-label="Download for Linux">
+      <a href="#" className={`store-badge ${os === 'linux' ? 'highlighted' : ''}`} aria-label="Download for Linux" onClick={playClickSound}>
         <div className="store-badge-content">
           <LinuxIcon />
           <div className="store-badge-text">
@@ -152,9 +157,11 @@ export function AppStoreBadges({ className = '' }) {
 }
 
 export function MobileStoreBadges({ className = '' }) {
+  const { playClickSound } = useSound();
+
   return (
     <div className={`mobile-store-badges ${className}`}>
-      <a href="#" className="store-badge" aria-label="Download on the App Store">
+      <a href="#" className="store-badge" aria-label="Download on the App Store" onClick={playClickSound}>
         <div className="store-badge-content">
           <AppleIcon />
           <div className="store-badge-text">
@@ -163,7 +170,7 @@ export function MobileStoreBadges({ className = '' }) {
           </div>
         </div>
       </a>
-      <a href="#" className="store-badge" aria-label="Get it on Google Play">
+      <a href="#" className="store-badge" aria-label="Get it on Google Play" onClick={playClickSound}>
         <div className="store-badge-content">
           <svg viewBox="0 0 24 24" width="20" height="20">
             <path fill="#4285F4" d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92z"/>
