@@ -3,7 +3,6 @@ import { useTheme } from './hooks/useTheme';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
-import { CheslyLogo } from './components/CheslyLogo';
 import { ValueProposition } from './components/ValueProposition';
 import { ProblemSolution } from './components/ProblemSolution';
 import { Features } from './components/Features';
@@ -35,7 +34,6 @@ function App() {
       <Navbar theme={theme} toggleTheme={toggleTheme} />
       <main id="main-content">
         <Hero onWatchDemo={openVideoModal} />
-        <CheslyLogo />
         <ValueProposition />
         <ProblemSolution />
         <Features />

@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { ScrollReveal } from '../hooks/useScrollReveal';
+import { useSound } from '../hooks/useSound';
 import './FAQ.css';
 
 export function FAQ() {
   const [openIndex, setOpenIndex] = useState(0);
+  const { playClickSound } = useSound();
 
   const faqs = [
     {
@@ -74,7 +76,7 @@ export function FAQ() {
               >
                 <button
                   className="faq-question"
-                  onClick={() => setOpenIndex(openIndex === index ? -1 : index)}
+                  onClick={() => { playClickSound(); setOpenIndex(openIndex === index ? -1 : index); }}
                   aria-expanded={openIndex === index}
                 >
                   <span>{faq.question}</span>
