@@ -26,13 +26,13 @@
 }
 
 .ps-problem {
-  background: rgba(239, 68, 68, 0.05);
-  border: 1px solid rgba(239, 68, 68, 0.1);
+  background: color-mix(in srgb, var(--color-error) 5%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-error) 10%, transparent);
 }
 
 .ps-solution {
   background: var(--color-accent-light);
-  border: 1px solid rgba(99, 102, 241, 0.2);
+  border: 1px solid color-mix(in srgb, var(--color-accent) 20%, transparent);
 }
 
 .ps-column-title {
@@ -60,8 +60,8 @@
 }
 
 .ps-icon-problem {
-  background: rgba(239, 68, 68, 0.1);
-  color: #ef4444;
+  background: color-mix(in srgb, var(--color-error) 10%, transparent);
+  color: var(--color-error);
 }
 
 .ps-icon-solution {
@@ -94,7 +94,7 @@
 }
 
 .ps-item-problem::before {
-  background: rgba(239, 68, 68, 0.5);
+  background: color-mix(in srgb, var(--color-error) 50%, transparent);
 }
 
 .ps-item-solution::before {

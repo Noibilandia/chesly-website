@@ -13,23 +13,23 @@
   padding: 0;
 }
 
-/* Design Tokens - Light Mode (Default) */
+/* Design Tokens - Dark Mode (Default) - Chesly Color Palette */
 :root {
   /* Colors - Chesly Brand */
-  --color-bg-primary: #ffffff;
+  --color-bg-primary: #020617;
   --color-bg-secondary: #0b1120;
-  --color-bg-tertiary: #f1f5f9;
-  --color-bg-elevated: rgba(255, 255, 255, 0.8);
+  --color-bg-tertiary: #1a1f35;
+  --color-bg-elevated: rgba(11, 17, 32, 0.8);
 
-  --color-text-primary: #020617;
-  --color-text-secondary: #64748b;
-  --color-text-tertiary: #94a3b8;
-  --color-text-muted: #cbd5e1;
+  --color-text-primary: #f9fafb;
+  --color-text-secondary: #9ca3af;
+  --color-text-tertiary: #6b7280;
+  --color-text-muted: #4b5563;
 
   --color-accent: #22d3ee;
   --color-accent-hover: #06b6d4;
-  --color-accent-light: rgba(124, 58, 237, 0.1);
-  --color-accent-glow: rgba(124, 58, 237, 0.4);
+  --color-accent-light: rgba(34, 211, 238, 0.1);
+  --color-accent-glow: rgba(34, 211, 238, 0.4);
 
   --color-cyan: #22d3ee;
   --color-cyan-light: rgba(34, 211, 238, 0.1);
@@ -38,17 +38,17 @@
   --color-warning: #f59e0b;
   --color-error: #f97373;
 
-  --color-border: rgba(0, 0, 0, 0.08);
-  --color-border-hover: rgba(0, 0, 0, 0.15);
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-hover: rgba(255, 255, 255, 0.15);
 
   /* Gradients - Chesly */
   --gradient-primary: linear-gradient(135deg, #22d3ee 0%, #06b6d4 50%, #0891b2 100%);
-  --gradient-accent: linear-gradient(135deg, #22d3ee 0%, #22d3ee 100%);
-  --gradient-subtle: linear-gradient(180deg, rgba(124, 58, 237, 0.05) 0%, transparent 100%);
-  --gradient-radial: radial-gradient(ellipse at top, rgba(124, 58, 237, 0.15) 0%, transparent 50%);
-  --gradient-mesh: radial-gradient(at 40% 20%, rgba(124, 58, 237, 0.1) 0px, transparent 50%),
-                   radial-gradient(at 80% 0%, rgba(34, 211, 238, 0.08) 0px, transparent 50%),
-                   radial-gradient(at 0% 50%, rgba(109, 40, 217, 0.05) 0px, transparent 50%);
+  --gradient-accent: linear-gradient(135deg, #22d3ee 0%, #a3e635 100%);
+  --gradient-subtle: linear-gradient(180deg, rgba(34, 211, 238, 0.05) 0%, transparent 100%);
+  --gradient-radial: radial-gradient(ellipse at top, rgba(34, 211, 238, 0.15) 0%, transparent 50%);
+  --gradient-mesh: radial-gradient(at 40% 20%, rgba(34, 211, 238, 0.1) 0px, transparent 50%),
+                   radial-gradient(at 80% 0%, rgba(163, 230, 53, 0.08) 0px, transparent 50%),
+                   radial-gradient(at 0% 50%, rgba(6, 182, 212, 0.05) 0px, transparent 50%);
 
   /* Typography */
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -95,14 +95,14 @@
   --space-48: 12rem;
 
   /* Shadows - Chesly */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
-  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-  --shadow-glow: 0 0 40px rgba(124, 58, 237, 0.15);
-  --shadow-glow-lg: 0 0 80px rgba(124, 58, 237, 0.2);
-  --shadow-cyan: 0 0 40px rgba(34, 211, 238, 0.15);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -4px rgba(0, 0, 0, 0.2);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 40px rgba(34, 211, 238, 0.2);
+  --shadow-glow-lg: 0 0 80px rgba(34, 211, 238, 0.25);
+  --shadow-cyan: 0 0 40px rgba(34, 211, 238, 0.2);
 
   /* Border Radius */
   --radius-sm: 0.375rem;
@@ -120,8 +120,8 @@
   --transition-slower: 500ms cubic-bezier(0.4, 0, 0.2, 1);
 
   /* Glassmorphism */
-  --glass-bg: rgba(255, 255, 255, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-bg: rgba(11, 17, 32, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.1);
   --glass-blur: blur(20px);
 
   /* Z-Index Scale */
@@ -135,42 +135,39 @@
   --z-skip-link: 500;
 }
 
-/* Dark Mode - Chesly */
-[data-theme="dark"] {
-  --color-bg-primary: #09090b;
-  --color-bg-secondary: #020617;
-  --color-bg-tertiary: #1e1b4b;
-  --color-bg-elevated: rgba(15, 23, 42, 0.8);
+/* Light Mode Alternative (Optional) */
+[data-theme="light"] {
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f9fafb;
+  --color-bg-tertiary: #f1f5f9;
+  --color-bg-elevated: rgba(255, 255, 255, 0.8);
 
-  --color-text-primary: #fafafa;
-  --color-text-secondary: #a1a1aa;
-  --color-text-tertiary: #71717a;
-  --color-text-muted: #52525b;
+  --color-text-primary: #020617;
+  --color-text-secondary: #64748b;
+  --color-text-tertiary: #94a3b8;
+  --color-text-muted: #cbd5e1;
 
-  --color-accent: #a78bfa;
-  --color-accent-hover: #c4b5fd;
-  --color-accent-light: rgba(167, 139, 250, 0.1);
-  --color-accent-glow: rgba(167, 139, 250, 0.3);
+  --color-accent: #22d3ee;
+  --color-accent-hover: #06b6d4;
+  --color-accent-light: rgba(34, 211, 238, 0.1);
+  --color-accent-glow: rgba(34, 211, 238, 0.4);
 
-  --color-cyan: #22d3ee;
-  --color-cyan-light: rgba(34, 211, 238, 0.1);
+  --color-border: rgba(0, 0, 0, 0.08);
+  --color-border-hover: rgba(0, 0, 0, 0.15);
 
-  --color-border: rgba(255, 255, 255, 0.08);
-  --color-border-hover: rgba(255, 255, 255, 0.15);
+  --gradient-radial: radial-gradient(ellipse at top, rgba(34, 211, 238, 0.1) 0%, transparent 50%);
+  --gradient-mesh: radial-gradient(at 40% 20%, rgba(34, 211, 238, 0.08) 0px, transparent 50%),
+                   radial-gradient(at 80% 0%, rgba(163, 230, 53, 0.06) 0px, transparent 50%),
+                   radial-gradient(at 0% 50%, rgba(6, 182, 212, 0.04) 0px, transparent 50%);
 
-  --gradient-radial: radial-gradient(ellipse at top, rgba(124, 58, 237, 0.2) 0%, transparent 50%);
-  --gradient-mesh: radial-gradient(at 40% 20%, rgba(124, 58, 237, 0.12) 0px, transparent 50%),
-                   radial-gradient(at 80% 0%, rgba(34, 211, 238, 0.1) 0px, transparent 50%),
-                   radial-gradient(at 0% 50%, rgba(109, 40, 217, 0.08) 0px, transparent 50%);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
 
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.2);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -4px rgba(0, 0, 0, 0.2);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
-  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-
-  --glass-bg: rgba(17, 17, 19, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.2);
 }
 
 /* Base Styles */
