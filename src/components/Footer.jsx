@@ -67,16 +67,7 @@ export function Footer() {
           <div className="footer-brand">
             <a href="#" className="footer-logo">
               <div className="logo-icon">
-                <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="32" height="32" rx="8" fill="url(#footer-brevio-gradient)"/>
-                  <path d="M8 16h16M8 11h12M8 21h8" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-                  <defs>
-                    <linearGradient id="footer-brevio-gradient" x1="0" y1="0" x2="32" y2="32">
-                      <stop stopColor="#7c3aed"/>
-                      <stop offset="1" stopColor="#22d3ee"/>
-                    </linearGradient>
-                  </defs>
-                </svg>
+                <img src="/cheslylogo.png" alt="Chesly Logo" />
               </div>
               <span>Chesly</span>
             </a>
