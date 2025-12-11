@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { ScrollReveal } from '../hooks/useScrollReveal';
 import { useDeviceDetect, getDownloadInfo } from '../hooks/useDeviceDetect';
 import { AppStoreBadges } from './SmartDownload';
@@ -7,7 +7,10 @@ import './SmartDownload.css';
 
 export function Hero({ onWatchDemo }) {
   const heroRef = useRef(null);
-  const [mergeApps, setMergeApps] = useState(false);
+  const phoneRef = useRef(null);
+  const appRefs = useRef([]);
+  const deltasRef = useRef([]);
+  const progressRef = useRef(0);
 
   const { os } = useDeviceDetect();
   const downloadInfo = getDownloadInfo(os);
@@ -20,36 +23,94 @@ export function Hero({ onWatchDemo }) {
   ];
 
   useEffect(() => {
-    const element = heroRef.current;
-    if (!element) return;
+    const heroElement = heroRef.current;
+    const phoneElement = phoneRef.current;
+    if (!heroElement || !phoneElement) return;
 
     let rafId = null;
 
-    const updateMergeState = () => {
-      rafId = null;
-      const rect = element.getBoundingClientRect();
-      const viewportHeight = window.innerHeight || 1;
-      const totalDistance = rect.height + viewportHeight;
-      const progress = Math.min(
-        1,
-        Math.max(0, (viewportHeight - rect.top) / totalDistance)
+    const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+
+    const getRawScrollProgress = () => {
+      const heroTop = heroElement.getBoundingClientRect().top + window.scrollY;
+      const heroHeight = heroElement.offsetHeight || 1;
+      return (window.scrollY - heroTop) / heroHeight;
+    };
+
+    const recalcDeltas = (mergeProgress) => {
+      const phoneRect = phoneElement.getBoundingClientRect();
+      const phoneCenterX = phoneRect.left + phoneRect.width / 2;
+      const phoneCenterY = phoneRect.top + phoneRect.height / 2;
+      const denom = Math.max(0.001, 1 - mergeProgress);
+
+      appRefs.current.forEach((appElement, index) => {
+        if (!appElement) return;
+        const rect = appElement.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        const currentDeltaX = phoneCenterX - centerX;
+        const currentDeltaY = phoneCenterY - centerY;
+
+        deltasRef.current[index] = {
+          x: currentDeltaX / denom,
+          y: currentDeltaY / denom,
+        };
+      });
+    };
+
+    const applyMergeProgress = (mergeProgress) => {
+      progressRef.current = mergeProgress;
+      appRefs.current.forEach((appElement, index) => {
+        const baseDelta = deltasRef.current[index];
+        if (!appElement || !baseDelta) return;
+
+        appElement.style.setProperty('--merge-tx', `${baseDelta.x * mergeProgress}px`);
+        appElement.style.setProperty('--merge-ty', `${baseDelta.y * mergeProgress}px`);
+        appElement.style.setProperty('--merge-scale', `${1 - mergeProgress * 0.65}`);
+        appElement.style.setProperty('--merge-opacity', `${1 - mergeProgress}`);
+        appElement.style.setProperty('--merge-blur', `${mergeProgress * 2}px`);
+      });
+    };
+
+    const update = () => {
+      const rawProgress = getRawScrollProgress();
+      const mergeStart = 0.05;
+      const mergeEnd = 0.6;
+      const mergeProgress = clamp(
+        (rawProgress - mergeStart) / (mergeEnd - mergeStart),
+        0,
+        1
       );
-      setMergeApps(progress > 0.35);
+
+      if (deltasRef.current.length !== appRefs.current.length) {
+        recalcDeltas(mergeProgress);
+      }
+      applyMergeProgress(mergeProgress);
     };
 
     const onScroll = () => {
       if (rafId == null) {
-        rafId = requestAnimationFrame(updateMergeState);
+        rafId = requestAnimationFrame(() => {
+          rafId = null;
+          update();
+        });
       }
     };
 
-    updateMergeState();
+    recalcDeltas(0);
+    update();
+
+    const onResize = () => {
+      recalcDeltas(progressRef.current);
+      onScroll();
+    };
+
     window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll);
+    window.addEventListener('resize', onResize);
 
     return () => {
       window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('resize', onScroll);
+      window.removeEventListener('resize', onResize);
       if (rafId != null) cancelAnimationFrame(rafId);
     };
   }, []);
@@ -140,26 +201,28 @@ export function Hero({ onWatchDemo }) {
         </ScrollReveal>
 
         <ScrollReveal className="hero-visual" delay={500}>
-          <div className={`hero-phone-container ${mergeApps ? 'apps-merged' : ''}`}>
+          <div className="hero-phone-container">
             {/* Floating app icons */}
             <div className="floating-apps">
               {apps.map((app, i) => (
                 <div
                   key={app.name}
                   className="floating-app"
+                  ref={(el) => { appRefs.current[i] = el; }}
                   style={{
                     '--delay': `${i * 0.5}s`,
-                    '--position': i,
                   }}
                 >
-                  <img src={app.logo} alt={app.name} className="app-logo-img" />
+                  <div className="floating-app-inner">
+                    <img src={app.logo} alt={app.name} className="app-logo-img" />
+                  </div>
                 </div>
               ))}
             </div>
 
             {/* Main phone */}
             <div className="hero-phone">
-              <div className="phone-frame">
+              <div className="phone-frame" ref={phoneRef}>
                 <div className="phone-notch"></div>
                 <div className="phone-screen">
                   <div className="phone-status-bar">
