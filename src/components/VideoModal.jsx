@@ -1,11 +1,9 @@
 import { useEffect, useRef } from 'react';
-import { useSound } from '../hooks/useSound';
 import './VideoModal.css';
 
 export function VideoModal({ isOpen, onClose }) {
   const modalRef = useRef(null);
   const closeButtonRef = useRef(null);
-  const { playClickSound } = useSound();
 
   useEffect(() => {
     if (isOpen) {
@@ -56,7 +54,7 @@ export function VideoModal({ isOpen, onClose }) {
           <button
             ref={closeButtonRef}
             className="video-modal-close"
-            onClick={() => { playClickSound(); onClose(); }}
+            onClick={onClose}
             aria-label="Close video"
           >
             <svg

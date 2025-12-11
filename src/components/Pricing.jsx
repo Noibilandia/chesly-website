@@ -1,11 +1,9 @@
 import { useState } from 'react';
 import { ScrollReveal } from '../hooks/useScrollReveal';
-import { useSound } from '../hooks/useSound';
 import './Pricing.css';
 
 export function Pricing() {
   const [annual, setAnnual] = useState(true);
-  const { playClickSound } = useSound();
 
   const plans = [
     {
@@ -81,7 +79,7 @@ export function Pricing() {
           <span className={!annual ? 'active' : ''}>Monthly</span>
           <button
             className={`toggle-switch ${annual ? 'active' : ''}`}
-            onClick={() => { playClickSound(); setAnnual(!annual); }}
+            onClick={() => setAnnual(!annual)}
             aria-label="Toggle billing period"
           >
             <span className="toggle-slider"></span>
@@ -97,7 +95,7 @@ export function Pricing() {
             <ScrollReveal
               key={plan.name}
               className={`pricing-card ${plan.popular ? 'popular' : ''}`}
-              delay={index * 100}
+              delay={150 + index * 120}
             >
               {plan.popular && (
                 <div className="popular-badge">Most Popular</div>
@@ -143,7 +141,6 @@ export function Pricing() {
               </ul>
               <button
                 className={`btn btn-lg ${plan.popular ? 'btn-primary' : 'btn-secondary'}`}
-                onClick={playClickSound}
               >
                 {plan.cta}
               </button>

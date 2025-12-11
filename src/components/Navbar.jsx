@@ -1,11 +1,9 @@
 import { useState, useEffect } from 'react';
-import { useSound } from '../hooks/useSound';
 import './Navbar.css';
 
 export function Navbar({ theme, toggleTheme }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { playClickSound } = useSound();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,7 +28,6 @@ export function Navbar({ theme, toggleTheme }) {
   // Handle smooth scroll for anchor links
   const handleNavClick = (e, href) => {
     e.preventDefault();
-    playClickSound();
     setMobileMenuOpen(false);
     const target = document.querySelector(href);
     if (target) {
@@ -71,7 +68,7 @@ export function Navbar({ theme, toggleTheme }) {
         <div className="navbar-actions">
           <button
             className="theme-toggle btn btn-ghost btn-icon"
-            onClick={() => { playClickSound(); toggleTheme(); }}
+            onClick={toggleTheme}
             aria-label="Toggle theme"
           >
             {theme === 'light' ? (
@@ -101,7 +98,7 @@ export function Navbar({ theme, toggleTheme }) {
           </a>
           <button
             className="mobile-menu-btn btn btn-ghost btn-icon"
-            onClick={() => { playClickSound(); setMobileMenuOpen(!mobileMenuOpen); }}
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? (
