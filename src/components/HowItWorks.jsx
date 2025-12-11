@@ -6,7 +6,7 @@ export function HowItWorks() {
     {
       number: '01',
       title: 'Connect your apps',
-      description: 'Link Slack, Gmail, WhatsApp, Discord, Teams, and more in just a few clicks. We support 50+ integrations.',
+      description: 'Link Slack, Gmail, WhatsApp, Telegram, Discord, Teams, and more in just a few clicks. We currently support 10+ integrations.',
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>

@@ -86,7 +86,7 @@ export function VideoModal({ isOpen, onClose }) {
             </div>
             <p className="video-placeholder-text">Demo video coming soon</p>
             <p className="video-placeholder-subtext">
-              Watch how Chesly unifies all your messages and saves you hours every week
+              Watch how Chesly unifies all your messages and saves you 10+ minutes every week
             </p>
           </div>
         </div>

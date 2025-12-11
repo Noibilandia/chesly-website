@@ -20,6 +20,7 @@ export function Hero({ onWatchDemo }) {
     { name: 'WhatsApp', logo: '/whatsapp-logo.png' },
     { name: 'Discord', logo: '/discord-logo.png' },
     { name: 'Teams', logo: '/teams-logo.png' },
+    { name: 'Telegram', logo: '/telegram-logo.png' },
   ];
 
   useEffect(() => {
@@ -138,8 +139,8 @@ export function Hero({ onWatchDemo }) {
           </h1>
 
           <p className="hero-description">
-            Connect Slack, Email, WhatsApp, Discord & more into one inbox.
-            Upgrade to Pro for AI summaries that save hours every week.
+            Connect Slack, Email, WhatsApp, Telegram, Discord & more into one inbox.
+            Upgrade to Pro for AI summaries that save time every week.
           </p>
 
           <div className="hero-actions">
@@ -184,18 +185,18 @@ export function Hero({ onWatchDemo }) {
 
           <div className="hero-stats">
             <div className="stat">
-              <span className="stat-value">5+ hrs</span>
+              <span className="stat-value">10+ min</span>
               <span className="stat-label">Saved per week</span>
             </div>
             <div className="stat-divider"></div>
             <div className="stat">
-              <span className="stat-value">50+</span>
+              <span className="stat-value">10+</span>
               <span className="stat-label">App integrations</span>
             </div>
             <div className="stat-divider"></div>
             <div className="stat">
-              <span className="stat-value">25K+</span>
-              <span className="stat-label">Happy users</span>
+              <span className="stat-value">Beta</span>
+              <span className="stat-label">In development</span>
             </div>
           </div>
         </ScrollReveal>

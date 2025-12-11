@@ -26,6 +26,27 @@
   max-width: 100%;
 }
 
+/* Early access (replaces testimonials while in development) */
+.early-access-card {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.early-access-title {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  margin-bottom: var(--space-3);
+  color: var(--color-text-primary);
+}
+
+.early-access-description {
+  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+  margin-bottom: var(--space-6);
+}
+
 .testimonials-carousel {
   display: flex;
   align-items: center;

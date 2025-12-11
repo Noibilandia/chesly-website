@@ -243,7 +243,7 @@ export function ProductShowcase() {
                     <polyline points="22 4 12 14.01 9 11.01"/>
                   </svg>
                 </div>
-                <span>50+ App Integrations</span>
+                <span>10+ App Integrations</span>
               </div>
               <div className="feature-card card-2">
                 <div className="feature-icon ai">
@@ -261,7 +261,7 @@ export function ProductShowcase() {
                     <polyline points="12 6 12 12 16 14"/>
                   </svg>
                 </div>
-                <span>Save 5+ Hours Weekly</span>
+                <span>Save 10+ Minutes Weekly</span>
               </div>
             </div>
           </div>

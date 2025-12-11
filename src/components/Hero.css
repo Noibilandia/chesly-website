@@ -259,6 +259,7 @@
 .floating-app:nth-child(3) { top: 50%; left: -15%; }
 .floating-app:nth-child(4) { bottom: 25%; right: -10%; }
 .floating-app:nth-child(5) { bottom: 5%; left: 5%; }
+.floating-app:nth-child(6) { top: 60%; right: -18%; }
 
 /* Phone frame */
 .hero-phone {
@@ -672,6 +673,7 @@
   .floating-app:nth-child(3) { top: 52%; left: -8%; }
   .floating-app:nth-child(4) { bottom: 30%; right: -6%; }
   .floating-app:nth-child(5) { bottom: -4%; left: 8%; }
+  .floating-app:nth-child(6) { top: 38%; right: -8%; }
 
   .app-store-badges {
     flex-direction: column;

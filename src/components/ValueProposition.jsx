@@ -11,7 +11,7 @@ export function ValueProposition() {
         </svg>
       ),
       title: 'One Unified Inbox',
-      description: 'All your messages from Slack, Email, WhatsApp, Discord, Teams—in one beautiful interface.',
+      description: 'All your messages from Slack, Email, WhatsApp, Telegram, Discord, Teams—in one beautiful interface.',
     },
     {
       icon: (
@@ -31,7 +31,7 @@ export function ValueProposition() {
           <polyline points="12 6 12 12 16 14"/>
         </svg>
       ),
-      title: 'Save 5+ Hours/Week',
+      title: 'Save 10+ Minutes/Week',
       description: 'Stop context-switching between apps. Reclaim your time for deep work that matters.',
     },
     {

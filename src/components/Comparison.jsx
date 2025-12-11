@@ -10,7 +10,7 @@ export function Comparison() {
     { name: 'Cross-app search', chesly: true, others: 'Limited' },
     { name: 'Custom filter rules', chesly: true, others: 'Basic' },
     { name: 'Team shared inboxes', chesly: true, others: 'Enterprise only' },
-    { name: 'Works with 50+ apps', chesly: true, others: 'Limited' },
+    { name: 'Works with 10+ apps', chesly: true, others: 'Limited' },
     { name: 'End-to-end encryption', chesly: true, others: 'Varies' },
     { name: 'Mobile apps', chesly: true, others: true },
   ];

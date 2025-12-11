@@ -8,7 +8,7 @@ export function FAQ() {
   const faqs = [
     {
       question: 'Which messaging apps does Chesly support?',
-      answer: 'Chesly integrates with 50+ apps including Slack, Gmail, WhatsApp, Discord, Microsoft Teams, Telegram, iMessage, Facebook Messenger, LinkedIn messages, and many more. We\'re constantly adding new integrations based on user requests.',
+      answer: 'Chesly integrates with 10+ apps including Slack, Gmail, WhatsApp, Telegram, Discord, and Microsoft Teams. We\'re actively adding more integrations during development.',
     },
     {
       question: 'How does the AI summarization work?',
