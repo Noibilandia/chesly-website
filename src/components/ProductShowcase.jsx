@@ -122,19 +122,42 @@ export function ProductShowcase() {
                         </div>
                         <div className="summary-points">
                           <div className="summary-point">
-                            <span className="point-emoji">📅</span>
+                            <span className="point-emoji" aria-hidden="true">
+                              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                                <line x1="16" y1="2" x2="16" y2="6" />
+                                <line x1="8" y1="2" x2="8" y2="6" />
+                                <line x1="3" y1="10" x2="21" y2="10" />
+                              </svg>
+                            </span>
                             <span>Launch moved to March 15th</span>
                           </div>
                           <div className="summary-point">
-                            <span className="point-emoji">⚠️</span>
+                            <span className="point-emoji" aria-hidden="true">
+                              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+                                <line x1="12" y1="9" x2="12" y2="13" />
+                                <line x1="12" y1="17" x2="12.01" y2="17" />
+                              </svg>
+                            </span>
                             <span>Legal sign-off needed by Friday</span>
                           </div>
                           <div className="summary-point">
-                            <span className="point-emoji">✅</span>
+                            <span className="point-emoji" aria-hidden="true">
+                              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                <circle cx="12" cy="12" r="10" />
+                                <polyline points="8 12 11 15 16 9" />
+                              </svg>
+                            </span>
                             <span>Marketing assets approved</span>
                           </div>
                           <div className="summary-point highlight">
-                            <span className="point-emoji">👤</span>
+                            <span className="point-emoji" aria-hidden="true">
+                              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                <circle cx="12" cy="8" r="4" />
+                                <path d="M6 20c0-3.31 2.69-6 6-6s6 2.69 6 6" />
+                              </svg>
+                            </span>
                             <span>You were mentioned 3 times</span>
                           </div>
                         </div>
@@ -161,7 +184,7 @@ export function ProductShowcase() {
                           <span className="filter-count">3</span>
                         </div>
                         <div className="filter-card">
-                          <div className="filter-color" style={{ background: '#7c3aed' }}></div>
+                          <div className="filter-color" style={{ background: '#f59e0b' }}></div>
                           <div className="filter-info">
                             <span className="filter-name">From Boss</span>
                             <span className="filter-rule">Sender: CEO, CTO</span>

@@ -101,7 +101,7 @@ export function FAQ() {
               </div>
               <h3>Still have questions?</h3>
               <p>Can't find the answer you're looking for? Our friendly team is here to help.</p>
-              <a href="mailto:support@brevio.app" className="btn btn-secondary">
+              <a href="mailto:support@chesly.app" className="btn btn-secondary">
                 Contact Support
               </a>
             </div>

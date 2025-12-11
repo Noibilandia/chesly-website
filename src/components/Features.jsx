@@ -12,7 +12,7 @@ export function Features() {
       ),
       title: 'Unified Inbox',
       description: 'Every message from every app, organized in one clean interface.',
-      color: '#7c3aed',
+      color: '#06b6d4',
     },
     {
       icon: (
@@ -33,7 +33,7 @@ export function Features() {
       ),
       title: 'Smart Filters',
       description: 'Custom rules decide what gets compacted and what stays priority.',
-      color: '#8b5cf6',
+      color: '#a3e635',
     },
     {
       icon: (
@@ -78,7 +78,7 @@ export function Features() {
       ),
       title: 'Team Workspaces',
       description: 'Shared inboxes for teams. Everyone sees what matters, nobody misses a beat.',
-      color: '#6366f1',
+      color: '#0ea5e9',
     },
     {
       icon: (

@@ -221,6 +221,11 @@
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 8px;
+  transition:
+    transform 700ms cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 700ms cubic-bezier(0.16, 1, 0.3, 1),
+    filter 700ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
 }
 
 .floating-app .app-logo-img,
@@ -232,11 +237,18 @@
   display: block;
 }
 
-.floating-app:nth-child(1) { top: 5%; left: -10%; }
-.floating-app:nth-child(2) { top: 20%; right: -5%; }
-.floating-app:nth-child(3) { top: 50%; left: -15%; }
-.floating-app:nth-child(4) { bottom: 25%; right: -10%; }
-.floating-app:nth-child(5) { bottom: 5%; left: 5%; }
+.floating-app:nth-child(1) { top: 5%; left: -10%; --merge-x: 190px; --merge-y: 220px; }
+.floating-app:nth-child(2) { top: 20%; right: -5%; --merge-x: -180px; --merge-y: 180px; }
+.floating-app:nth-child(3) { top: 50%; left: -15%; --merge-x: 220px; --merge-y: 0px; }
+.floating-app:nth-child(4) { bottom: 25%; right: -10%; --merge-x: -200px; --merge-y: -140px; }
+.floating-app:nth-child(5) { bottom: 5%; left: 5%; --merge-x: 150px; --merge-y: -220px; }
+
+.hero-phone-container.apps-merged .floating-app {
+  animation: none;
+  transform: translate(var(--merge-x), var(--merge-y)) scale(0.4);
+  opacity: 0;
+  filter: blur(2px);
+}
 
 /* Phone frame */
 .hero-phone {

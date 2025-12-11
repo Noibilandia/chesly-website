@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react';
 import { ScrollReveal } from '../hooks/useScrollReveal';
 import { useDeviceDetect, getDownloadInfo } from '../hooks/useDeviceDetect';
 import { AppStoreBadges } from './SmartDownload';
@@ -5,7 +6,10 @@ import './Hero.css';
 import './SmartDownload.css';
 
 export function Hero({ onWatchDemo }) {
-  const { os, isMobile } = useDeviceDetect();
+  const heroRef = useRef(null);
+  const [mergeApps, setMergeApps] = useState(false);
+
+  const { os } = useDeviceDetect();
   const downloadInfo = getDownloadInfo(os);
   const apps = [
     { name: 'Slack', logo: '/slack-logo.png' },
@@ -15,8 +19,43 @@ export function Hero({ onWatchDemo }) {
     { name: 'Teams', logo: '/teams-logo.png' },
   ];
 
+  useEffect(() => {
+    const element = heroRef.current;
+    if (!element) return;
+
+    let rafId = null;
+
+    const updateMergeState = () => {
+      rafId = null;
+      const rect = element.getBoundingClientRect();
+      const viewportHeight = window.innerHeight || 1;
+      const totalDistance = rect.height + viewportHeight;
+      const progress = Math.min(
+        1,
+        Math.max(0, (viewportHeight - rect.top) / totalDistance)
+      );
+      setMergeApps(progress > 0.35);
+    };
+
+    const onScroll = () => {
+      if (rafId == null) {
+        rafId = requestAnimationFrame(updateMergeState);
+      }
+    };
+
+    updateMergeState();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+      if (rafId != null) cancelAnimationFrame(rafId);
+    };
+  }, []);
+
   return (
-    <section className="hero">
+    <section className="hero" ref={heroRef}>
       <div className="hero-bg">
         <div className="hero-gradient"></div>
         <div className="hero-grid"></div>
@@ -101,7 +140,7 @@ export function Hero({ onWatchDemo }) {
         </ScrollReveal>
 
         <ScrollReveal className="hero-visual" delay={500}>
-          <div className="hero-phone-container">
+          <div className={`hero-phone-container ${mergeApps ? 'apps-merged' : ''}`}>
             {/* Floating app icons */}
             <div className="floating-apps">
               {apps.map((app, i) => (
@@ -140,8 +179,9 @@ export function Hero({ onWatchDemo }) {
                           <path d="M8 16h16M8 11h12M8 21h8" stroke="white" strokeWidth="2" strokeLinecap="round"/>
                           <defs>
                             <linearGradient id="phone-gradient" x1="0" y1="0" x2="32" y2="32">
-                              <stop stopColor="#7c3aed"/>
-                              <stop offset="1" stopColor="#22d3ee"/>
+                              <stop offset="0" stopColor="#22d3ee"/>
+                              <stop offset="0.5" stopColor="#06b6d4"/>
+                              <stop offset="1" stopColor="#0891b2"/>
                             </linearGradient>
                           </defs>
                         </svg>

@@ -37,7 +37,7 @@
   width: 40%;
 }
 
-.nexus-col,
+.chesly-col,
 .others-col {
   width: 30%;
 }
@@ -55,7 +55,7 @@
   color: var(--color-text-primary);
 }
 
-.nexus-header .col-logo {
+.chesly-header .col-logo {
   background: var(--gradient-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -132,7 +132,7 @@
   font-style: italic;
 }
 
-.nexus-value {
+.chesly-value {
   background: var(--color-accent-light);
 }
 
@@ -196,7 +196,7 @@
     width: 100%;
   }
 
-  .brevio-value::before,
+  .chesly-value::before,
   .others-value::before {
     content: attr(data-label);
     font-size: var(--text-xs);

@@ -3,16 +3,16 @@ import './Comparison.css';
 
 export function Comparison() {
   const features = [
-    { name: 'All messages in one place', brevio: true, others: false },
-    { name: 'AI-powered summaries', brevio: true, others: false },
-    { name: 'Smart notification batching', brevio: true, others: false },
-    { name: 'Reply from unified inbox', brevio: true, others: false },
-    { name: 'Cross-app search', brevio: true, others: 'Limited' },
-    { name: 'Custom filter rules', brevio: true, others: 'Basic' },
-    { name: 'Team shared inboxes', brevio: true, others: 'Enterprise only' },
-    { name: 'Works with 50+ apps', brevio: true, others: 'Limited' },
-    { name: 'End-to-end encryption', brevio: true, others: 'Varies' },
-    { name: 'Mobile apps', brevio: true, others: true },
+    { name: 'All messages in one place', chesly: true, others: false },
+    { name: 'AI-powered summaries', chesly: true, others: false },
+    { name: 'Smart notification batching', chesly: true, others: false },
+    { name: 'Reply from unified inbox', chesly: true, others: false },
+    { name: 'Cross-app search', chesly: true, others: 'Limited' },
+    { name: 'Custom filter rules', chesly: true, others: 'Basic' },
+    { name: 'Team shared inboxes', chesly: true, others: 'Enterprise only' },
+    { name: 'Works with 50+ apps', chesly: true, others: 'Limited' },
+    { name: 'End-to-end encryption', chesly: true, others: 'Varies' },
+    { name: 'Mobile apps', chesly: true, others: true },
   ];
 
   const renderValue = (value) => {
@@ -59,8 +59,8 @@ export function Comparison() {
             <thead>
               <tr>
                 <th className="feature-col">Feature</th>
-                <th className="brevio-col">
-                  <div className="col-header brevio-header">
+                <th className="chesly-col">
+                  <div className="col-header chesly-header">
                     <span className="col-logo">Chesly</span>
                     <span className="col-badge">Recommended</span>
                   </div>
@@ -76,7 +76,7 @@ export function Comparison() {
               {features.map((feature, index) => (
                 <tr key={feature.name} style={{ animationDelay: `${index * 50}ms` }}>
                   <td className="feature-name">{feature.name}</td>
-                  <td className="brevio-value" data-label="Chesly">{renderValue(feature.brevio)}</td>
+                  <td className="chesly-value" data-label="Chesly">{renderValue(feature.chesly)}</td>
                   <td className="others-value" data-label="Using 10+ Apps">{renderValue(feature.others)}</td>
                 </tr>
               ))}

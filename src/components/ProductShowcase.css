@@ -302,8 +302,22 @@
 }
 
 .point-emoji {
-  font-size: 14px;
+  width: 14px;
+  height: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
+  color: var(--color-text-secondary);
+}
+
+.point-emoji svg {
+  width: 14px;
+  height: 14px;
+}
+
+.summary-point.highlight .point-emoji {
+  color: var(--color-accent);
 }
 
 .summary-actions {
@@ -491,7 +505,7 @@
 }
 
 .product-showcase .feature-icon.ai {
-  background: linear-gradient(135deg, #7c3aed 0%, #22d3ee 100%);
+  background: var(--gradient-accent);
 }
 
 .product-showcase .feature-icon.time {
