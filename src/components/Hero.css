@@ -257,9 +257,9 @@
 .floating-app:nth-child(1) { top: 5%; left: -10%; }
 .floating-app:nth-child(2) { top: 20%; right: -5%; }
 .floating-app:nth-child(3) { top: 50%; left: -15%; }
-.floating-app:nth-child(4) { bottom: 25%; right: -10%; }
+.floating-app:nth-child(4) { bottom: 25%; right: -10%; z-index: 1; }
 .floating-app:nth-child(5) { bottom: 5%; left: 5%; }
-.floating-app:nth-child(6) { top: 60%; right: -18%; }
+.floating-app:nth-child(6) { top: 35%; right: -18%; z-index: 0; }
 
 /* Phone frame */
 .hero-phone {
@@ -673,7 +673,17 @@
   .floating-app:nth-child(3) { top: 52%; left: -8%; }
   .floating-app:nth-child(4) { bottom: 30%; right: -6%; }
   .floating-app:nth-child(5) { bottom: -4%; left: 8%; }
-  .floating-app:nth-child(6) { top: 38%; right: -8%; }
+  .floating-app:nth-child(6) { top: 28%; right: -10%; }
+
+  /* Reduce GPU-heavy effects for smoother scrolling */
+  .floating-app {
+    transition: none;
+  }
+
+  .floating-app-inner {
+    animation: none;
+    backdrop-filter: none;
+  }
 
   .app-store-badges {
     flex-direction: column;
