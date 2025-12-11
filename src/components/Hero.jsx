@@ -45,16 +45,16 @@ export function Hero({ onWatchDemo }) {
           <div className="hero-actions">
             <a href={downloadInfo.url} className="btn btn-primary btn-lg">
               {downloadInfo.icon === 'apple' && (
-                <img src="/applelogo.png" alt="Apple" width="20" height="20" style={{ objectFit: 'contain' }} />
+                <img src="/applelogo.png" alt="Apple" width="20" height="20" className="platform-logo" style={{ objectFit: 'contain' }} />
               )}
               {downloadInfo.icon === 'windows' && (
-                <img src="/windowslogo.png" alt="Windows" width="20" height="20" style={{ objectFit: 'contain' }} />
+                <img src="/windowslogo.png" alt="Windows" width="20" height="20" className="platform-logo" style={{ objectFit: 'contain' }} />
               )}
               {downloadInfo.icon === 'linux' && (
-                <img src="/linuxlogo.png" alt="Linux" width="20" height="20" style={{ objectFit: 'contain' }} />
+                <img src="/linuxlogo.png" alt="Linux" width="20" height="20" className="platform-logo" style={{ objectFit: 'contain' }} />
               )}
               {downloadInfo.icon === 'android' && (
-                <img src="/androidlogo.png" alt="Android" width="20" height="20" style={{ objectFit: 'contain' }} />
+                <img src="/androidlogo.png" alt="Android" width="20" height="20" className="platform-logo" style={{ objectFit: 'contain' }} />
               )}
               {downloadInfo.icon === 'download' && (
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

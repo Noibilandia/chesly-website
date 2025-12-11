@@ -7,6 +7,30 @@
   flex-shrink: 0;
 }
 
+/* Platform Logo Styling - Black & White with theme adaptation */
+.platform-logo {
+  filter: brightness(0) invert(1); /* White in dark mode */
+  transition: filter var(--transition-fast);
+}
+
+[data-theme="light"] .platform-logo {
+  filter: brightness(0); /* Black in light mode */
+}
+
+/* Platform logos in buttons with gradient background should always be white */
+.btn-primary .platform-logo {
+  filter: brightness(0) invert(1) !important;
+}
+
+/* Platform logos in store badges should match the badge style */
+.store-badge .platform-logo {
+  filter: brightness(0); /* Black on white background */
+}
+
+.store-badge.highlighted .platform-logo {
+  filter: brightness(0) invert(1); /* White on gradient background */
+}
+
 /* Platform Badges */
 .smart-download-all {
   display: flex;

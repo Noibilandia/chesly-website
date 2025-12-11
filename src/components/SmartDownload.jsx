@@ -1,13 +1,14 @@
 import { useDeviceDetect, getDownloadInfo } from '../hooks/useDeviceDetect';
 import './SmartDownload.css';
 
-// Platform icons as components - using uploaded logo images
+// Platform icons as components - using uploaded logo images with theme-adaptive styling
 const AppleIcon = () => (
   <img
     src="/applelogo.png"
     alt="Apple"
     width="20"
     height="20"
+    className="platform-logo"
     style={{ objectFit: 'contain' }}
   />
 );
@@ -18,6 +19,7 @@ const WindowsIcon = () => (
     alt="Windows"
     width="20"
     height="20"
+    className="platform-logo"
     style={{ objectFit: 'contain' }}
   />
 );
@@ -28,6 +30,7 @@ const LinuxIcon = () => (
     alt="Linux"
     width="20"
     height="20"
+    className="platform-logo"
     style={{ objectFit: 'contain' }}
   />
 );
@@ -38,6 +41,7 @@ const AndroidIcon = () => (
     alt="Android"
     width="20"
     height="20"
+    className="platform-logo"
     style={{ objectFit: 'contain' }}
   />
 );
