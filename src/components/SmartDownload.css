@@ -7,16 +7,12 @@
   flex-shrink: 0;
 }
 
-/* Platform Logo Styling - White for dark theme */
-.platform-logo {
-  filter: brightness(0) invert(1);
-  transition: filter var(--transition-fast);
-}
-
-/* App logos - invert for dark theme */
+/* Platform and app logos - keep original colors */
+.platform-logo,
 .app-logo-img {
-  filter: brightness(0) invert(1);
+  filter: none;
   mix-blend-mode: normal;
+  transition: filter var(--transition-fast);
 }
 
 /* Platform Badges */
