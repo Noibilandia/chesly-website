@@ -20,7 +20,7 @@ export function Features() {
         <AiIcon />
       ),
       title: 'AI Insights',
-      description: 'Summaries are just the start—get highlights, action items, and smart suggestions in seconds.',
+      description: 'Summaries are just the start. Get highlights, action items, and smart suggestions in seconds.',
       color: '#22d3ee',
     },
     {
@@ -51,7 +51,7 @@ export function Features() {
         </svg>
       ),
       title: 'Reply From Anywhere',
-      description: 'Respond to Slack, Email, or WhatsApp—all without switching apps.',
+      description: 'Respond to Slack, Email, or WhatsApp without switching apps.',
       color: '#10b981',
     },
     {

@@ -13,7 +13,7 @@ export function ProductShowcase() {
     },
     {
       title: 'AI Insights',
-      description: 'Highlights, action items, and summaries—instantly',
+      description: 'Highlights, action items, and summaries instantly',
     },
     {
       title: 'Smart Filters',

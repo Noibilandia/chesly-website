@@ -12,7 +12,7 @@ export function FAQ() {
     },
     {
       question: 'What can Chesly\'s AI do?',
-      answer: 'Chesly\'s AI helps you stay on top of messages by extracting highlights and action items, summarizing long threads, and learning what\'s urgent based on your rules. You control what it focuses on—mentions, deadlines, key senders, and topics you care about.',
+      answer: 'Chesly\'s AI helps you stay on top of messages by extracting highlights and action items, summarizing long threads, and learning what\'s urgent based on your rules. You control what it focuses on: mentions, deadlines, key senders, and topics you care about.',
     },
     {
       question: 'Is my message data secure and private?',
@@ -20,11 +20,11 @@ export function FAQ() {
     },
     {
       question: 'Can I reply to messages directly from Chesly?',
-      answer: 'Yes! You can reply to Slack messages, emails, WhatsApp, and more—all without leaving Chesly. Your replies are sent through the original platform, so the conversation continues naturally.',
+      answer: 'Yes! You can reply to Slack messages, emails, WhatsApp, and more without leaving Chesly. Your replies are sent through the original platform, so the conversation continues naturally.',
     },
     {
       question: 'How does the free trial work?',
-      answer: 'Start with a 14-day free trial of our Pro plan—no credit card required. You\'ll have access to Pro features like AI insights, smart notifications, and AI-powered search, plus all integrations. Downgrade to Free or upgrade to Team anytime.',
+      answer: 'Start with a 14-day free trial of our Pro plan. No credit card required. You\'ll have access to Pro features like AI insights, smart notifications, and AI-powered search, plus all integrations. Downgrade to Free or upgrade to Team anytime.',
     },
     {
       question: 'Will Chesly work with my company\'s existing tools?',

@@ -12,7 +12,7 @@ export function ValueProposition() {
         </svg>
       ),
       title: 'One Unified Inbox',
-      description: 'All your messages from Slack, Email, WhatsApp, Telegram, Discord, Teams—in one beautiful interface.',
+      description: 'All your messages from Slack, Email, WhatsApp, Telegram, Discord, and Teams in one beautiful interface.',
     },
     {
       icon: (
