@@ -126,3 +126,10 @@
     font-size: var(--text-lg);
   }
 }
+
+/* Mobile performance: disable heavy animated glows */
+@media (max-width: 768px) {
+  .cta-glow {
+    display: none;
+  }
+}

@@ -13,7 +13,7 @@ export function Hero({ onWatchDemo }) {
   const deltasRef = useRef([]);
   const progressRef = useRef(0);
 
-  const { os } = useDeviceDetect();
+  const { os, isMobile } = useDeviceDetect();
   const downloadInfo = getDownloadInfo(os);
   const apps = [
     { name: 'Slack', logo: '/slack-logo.png' },
@@ -25,6 +25,14 @@ export function Hero({ onWatchDemo }) {
   ];
 
   useEffect(() => {
+    const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
+    const isSmallScreen = window.matchMedia?.('(max-width: 768px)')?.matches;
+    const saveDataEnabled = navigator.connection?.saveData;
+
+    if (isMobile || isSmallScreen || prefersReducedMotion || saveDataEnabled) {
+      return;
+    }
+
     const heroElement = heroRef.current;
     const phoneElement = phoneRef.current;
     if (!heroElement || !phoneElement) return;
@@ -115,7 +123,7 @@ export function Hero({ onWatchDemo }) {
       window.removeEventListener('resize', onResize);
       if (rafId != null) cancelAnimationFrame(rafId);
     };
-  }, []);
+  }, [isMobile]);
 
   return (
     <section className="hero" ref={heroRef}>

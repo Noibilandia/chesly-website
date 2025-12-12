@@ -135,6 +135,15 @@
   --z-skip-link: 500;
 }
 
+/* Mobile performance tuning */
+@media (max-width: 768px) {
+  :root {
+    --glass-bg: rgba(11, 17, 32, 0.88);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-blur: blur(12px);
+  }
+}
+
 
 /* Base Styles */
 html {
@@ -448,6 +457,25 @@ img {
   opacity: 1;
   transform: translateY(0) scale(1);
   filter: blur(0);
+}
+
+/* Mobile performance: avoid filter animations (expensive on iOS/low-end devices) */
+@media (max-width: 768px) {
+  .reveal {
+    filter: none;
+    transition:
+      opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal.visible {
+    filter: none;
+  }
+
+  .hero-content.reveal.visible,
+  .hero-visual.reveal.visible {
+    animation: none;
+  }
 }
 
 /* Hero-specific animation - dramatic entrance */
