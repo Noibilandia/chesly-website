@@ -7,7 +7,6 @@ import { ProductShowcase } from '../components/ProductShowcase';
 import { HowItWorks } from '../components/HowItWorks';
 import { Pricing } from '../components/Pricing';
 import { Testimonials } from '../components/Testimonials';
-import { Comparison } from '../components/Comparison';
 import { FAQ } from '../components/FAQ';
 import { CTA } from '../components/CTA';
 import { VideoModal } from '../components/VideoModal';
@@ -38,7 +37,6 @@ export function Home() {
       <HowItWorks />
       <Pricing />
       <Testimonials />
-      <Comparison />
       <FAQ />
       <CTA />
       <VideoModal isOpen={isVideoModalOpen} onClose={closeVideoModal} />
